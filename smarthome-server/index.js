@@ -6,6 +6,11 @@ const serialComminucator = new SerialComminucator({
   device: "/dev/ttyUSB0"
 });
 
+var sensorData = {};
+
 serialComminucator.setCommunicatorListener("line", "data", data => {
-  console.log(data.toString("utf8"));
+  const splittedLine = data.split("\t");
+  sensorData[splittedLine[0]] = splittedLine[1];
 });
+
+setInterval(() => console.log(sensorData), 1500);
