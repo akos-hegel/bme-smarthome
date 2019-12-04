@@ -7,6 +7,5 @@ const serialComminucator = new SerialComminucator({
 });
 
 serialComminucator.setCommunicatorListener("line", "data", data => {
-  console.log("new line on serial port: ");
   console.log(data.toString("utf8"));
 });
