@@ -3,7 +3,10 @@ const SerialComminucator = require("./serial-communicator");
 console.log("reading data from serial port...");
 
 const serialComminucator = new SerialComminucator({
-  device: "ttyUSB0"
+  device: "/dev/ttyUSB0"
 });
 
-serialComminucator.init();
+serialComminucator.setCommunicatorListener("line", "data", data => {
+  console.log("new line on serial port: ");
+  console.log(data.toString("utf8"));
+});
