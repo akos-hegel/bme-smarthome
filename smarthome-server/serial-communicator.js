@@ -1,8 +1,8 @@
 "use strict";
 
 const SerialPort = require("serialport");
-const ByteLength = require("@serialport/parserbytelength");
-const Readline = require("@serialport/parserreadline");
+const ByteLength = require("@serialport/parser-byte-length");
+const Readline = require("@serialport/parser-readline");
 
 class SerialCommunicator {
   constructor({ device = null, baudRate = 9600, byteParserLenght = 8 } = {}) {
